@@ -1,15 +1,12 @@
 package com.penelakut.soswedding.model;
 
-import java.util.Set;
+import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
@@ -22,8 +19,7 @@ import lombok.Setter;
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class User {
     @Id
-    @Column(name = "id", nullable = false, unique = true)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
     @NotNull
@@ -44,11 +40,20 @@ public class User {
 
     private String companyName;
 
-    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
-    @JoinColumn(name = "service_id", referencedColumnName = "user_id")
-    private Set<ProviderService> providerServices;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProviderService> providerServices;
 
     private String imgUrl;
+
+    private void addProviderService(ProviderService providerService){
+        providerServices.add(providerService);
+        providerService.setUser(this);
+    }
+
+    private void removeProviderService(ProviderService providerService){
+        providerServices.remove(providerService);
+        providerService.setUser(null);
+    }
 
 
 }

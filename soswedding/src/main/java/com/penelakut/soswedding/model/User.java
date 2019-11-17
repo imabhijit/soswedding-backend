@@ -41,7 +41,7 @@ public class User {
 
     private String companyName;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", orphanRemoval = true, cascade = CascadeType.ALL)
     private Set<ProviderService> providerServices;
 
     private String imgUrl;

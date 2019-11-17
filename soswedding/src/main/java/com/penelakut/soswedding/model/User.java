@@ -1,6 +1,6 @@
 package com.penelakut.soswedding.model;
 
-import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
@@ -21,7 +21,7 @@ import lombok.Setter;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @NotNull
     private UUID uuid;
@@ -41,8 +41,8 @@ public class User {
 
     private String companyName;
 
-    @OneToMany(mappedBy = "user", targetEntity = ProviderService.class, orphanRemoval = true, cascade = CascadeType.ALL)
-    private List<ProviderService> providerServices;
+    @OneToMany(mappedBy = "user", orphanRemoval = true, cascade = CascadeType.ALL)
+    private Set<ProviderService> providerServices;
 
     private String imgUrl;
 

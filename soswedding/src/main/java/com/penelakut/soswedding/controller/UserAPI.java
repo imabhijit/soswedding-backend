@@ -1,7 +1,9 @@
 package com.penelakut.soswedding.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,13 +18,22 @@ public class UserAPI {
     @Autowired
     private UserRepository userRepository;
 
+    @PostMapping("/user")
+    public User createUser(@RequestBody User user){
+        return userRepository.save(user);
+    }
+
     @GetMapping("/user/{id}")
     public User getUser(@PathVariable String id){
         return userRepository.findById(Long.parseLong(id)).orElse(null);
     }
 
-    @PostMapping("/user")
-    public User postUser(@RequestBody User user){
+    @PatchMapping("/user")
+    public User updateUser(@RequestBody User user){
         return userRepository.save(user);
     }
+
+    @DeleteMapping("/user/{id}")
+    public void deleteUser(@PathVariable String id){ userRepository.deleteById(Long.parseLong(id)); }
+
 }

@@ -1,6 +1,7 @@
 package com.penelakut.soswedding.model;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,11 +25,15 @@ public class User {
     private long id;
 
     @NotNull
+    private UUID uuid;
+
+    @NotNull
     private String firstName;
 
     private String lastName;
 
-    private String type;
+    @NotNull
+    private UserType type;
 
     private String phoneNumber;
 

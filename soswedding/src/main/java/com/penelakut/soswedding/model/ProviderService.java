@@ -13,8 +13,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class ProviderService {
@@ -26,6 +24,5 @@ public class ProviderService {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    @JsonIgnore
     private User user;
 }

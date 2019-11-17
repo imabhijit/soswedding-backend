@@ -23,6 +23,6 @@ public class ProviderService {
     private String service;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn
     private User user;
 }

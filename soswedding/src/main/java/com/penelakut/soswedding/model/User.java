@@ -45,5 +45,7 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<ProviderService> providerServices;
 
+    private String imgUrl;
+
 
 }

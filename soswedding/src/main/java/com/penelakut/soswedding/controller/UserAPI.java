@@ -33,7 +33,7 @@ public class UserAPI {
         return userRepository.save(user);
     }
 
-    @DeleteMapping("/user/{id}")
-    public void deleteUser(@PathVariable String id){ userRepository.deleteById(Long.parseLong(id)); }
+    @DeleteMapping("/user")
+    public void deleteUser(@RequestBody User user){ userRepository.delete(user); }
 
 }

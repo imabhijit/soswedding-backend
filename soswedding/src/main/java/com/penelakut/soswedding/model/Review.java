@@ -1,12 +1,9 @@
 package com.penelakut.soswedding.model;
 
-import java.util.UUID;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,31 +12,16 @@ import lombok.Setter;
 
 @Entity
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
-public class User {
+public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    private UUID uuid;
+    private String description;
 
-    @NotNull
-    private String firstName;
+    private Integer rating;
 
-    private String lastName;
+    //TODO: join to user who is being reviewed
 
-    @NotNull
-    private UserType type;
-
-    private String phoneNumber;
-
-    @NotNull
-    private String emailAddress;
-
-    private String companyName;
-
-    private String imgUrl;
-
-    private ServiceType serviceType;
-
+    //TODO: join to user that posted the review
 }

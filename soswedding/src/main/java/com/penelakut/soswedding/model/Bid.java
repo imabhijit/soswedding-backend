@@ -2,6 +2,7 @@ package com.penelakut.soswedding.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
@@ -11,14 +12,21 @@ import lombok.Setter;
 
 @Entity
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
-public class ProviderService {
+public class Bid {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private ServiceType service;
+    private Double amount;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "user_id")
-//    private User user;
+    private String message;
+
+    private Status status;
+
+    //Todo: join to user
+
+    //Todo: join to request
+
+
 }

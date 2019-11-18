@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.penelakut.soswedding.model.User;
-import com.penelakut.soswedding.repository.ProviderServiceRepository;
 import com.penelakut.soswedding.repository.UserRepository;
 
 @RestController
@@ -20,9 +19,6 @@ public class UserAPI {
 
     @Autowired
     private UserRepository userRepository;
-
-    @Autowired
-    private ProviderServiceRepository providerServiceRepository;
 
     @PostMapping("/user")
     public User createUser(@RequestBody User user){

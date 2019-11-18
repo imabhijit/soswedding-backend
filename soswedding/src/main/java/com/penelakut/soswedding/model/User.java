@@ -1,6 +1,5 @@
 package com.penelakut.soswedding.model;
 
-import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.Entity;
@@ -41,7 +40,7 @@ public class User {
 
     private String imgUrl;
 
-    private Set<ServiceType> serviceTypes;
+    private ServiceType serviceType;
 
 //    TODO: Allow for many services via join table
 //    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)

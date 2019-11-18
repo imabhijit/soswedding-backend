@@ -26,5 +26,5 @@ public class Request {
 
     private Double budget;
 
-    //Todo: join to user
+    private Long userId;
 }

@@ -24,9 +24,9 @@ public class Bid {
 
     private Status status;
 
-    //Todo: join to user
+    private Long userId;
 
-    //Todo: join to request
+    private Long requestId;
 
 
 }

@@ -1,13 +1,11 @@
 package com.penelakut.soswedding.model;
 
-import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -40,20 +38,12 @@ public class User {
 
     private String companyName;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ProviderService> providerServices;
-
     private String imgUrl;
 
-    private void addProviderService(ProviderService providerService){
-        providerServices.add(providerService);
-        providerService.setUser(this);
-    }
-
-    private void removeProviderService(ProviderService providerService){
-        providerServices.remove(providerService);
-        providerService.setUser(null);
-    }
-
+    private Set<ServiceType> serviceTypes;
+    
+//    TODO: Allow for many services via join table
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<ProviderService> providerServices;
 
 }

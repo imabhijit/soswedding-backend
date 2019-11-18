@@ -21,7 +21,10 @@ public class Review {
 
     private Integer rating;
 
-    //TODO: join to user who is being reviewed
+    //person posting the review
+    private Long reviewerId;
 
-    //TODO: join to user that posted the review
+    //person being reviewed
+    private Long reviewedUserId;
+
 }

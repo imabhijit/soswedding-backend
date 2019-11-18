@@ -1,5 +1,7 @@
 package com.penelakut.soswedding.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,11 +27,15 @@ public class ReviewAPI {
         return reviewRepository.save(review);
     }
 
-//    TODO: when join exists to user.
-//    @GetMapping("/review/user/{id}")
-//    public List<Review> getAllByUserId(@PathVariable String id){
-//        return  reviewRepository.findAllByUserId(id);
-//    }
+    @GetMapping("/review/user/{id}")
+    public List<Review> getAllReviewsForUserId(@PathVariable String id){
+        return  reviewRepository.findAllByReviewedUserId(Long.parseLong(id));
+    }
+
+    @GetMapping("/user/{id}/review")
+    public List<Review> getAllReviewsByUserId(@PathVariable String id){
+        return  reviewRepository.findAllByReviewerId(Long.parseLong(id));
+    }
 
     @GetMapping("/review/{id}")
     public Review getReviewById(@PathVariable String id){

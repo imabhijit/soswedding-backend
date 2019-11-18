@@ -35,7 +35,7 @@ public class UserAPI {
                 String.format("No User found with id %s ", id)));
     }
 
-    @GetMapping("/user/{firstName}")
+    @GetMapping("/user/firstName/{firstName}")
     public User getUserByFirstName(@PathVariable String firstName){
         return userRepository.findUserByFirstName(firstName).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
                 String.format("No User found with first name %s ", firstName)));

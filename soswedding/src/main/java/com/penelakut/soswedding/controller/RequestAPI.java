@@ -33,6 +33,11 @@ public class RequestAPI {
         return requestRepository.save(request);
     }
 
+    @GetMapping("/request")
+    public List<Request> getAllRequests(){
+        return requestRepository.findAll();
+    }
+
     @GetMapping("/request/user/{id}")
     public List<Request> getAllRequestsByUserId(@PathVariable String id){
         return  requestRepository.findAllByUserId(Long.parseLong(id));

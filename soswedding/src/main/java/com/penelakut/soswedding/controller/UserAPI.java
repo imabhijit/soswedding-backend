@@ -1,7 +1,5 @@
 package com.penelakut.soswedding.controller;
 
-import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,7 +27,7 @@ public class UserAPI {
 
     @GetMapping("/user/{uuid}")
     public User getUserById(@PathVariable String uuid){
-        return userRepository.findUserByUuid(UUID.fromString(uuid)).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
+        return userRepository.findUserByUuid(uuid).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
                 String.format("No User found with uuid %s ", uuid)));
     }
 

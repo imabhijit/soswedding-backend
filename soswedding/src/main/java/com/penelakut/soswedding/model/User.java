@@ -1,8 +1,5 @@
 package com.penelakut.soswedding.model;
 
-import java.util.UUID;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,8 +19,7 @@ public class User {
     private Long id;
 
     @NotNull
-    @Column(columnDefinition = "BINARY(16)")
-    private UUID uuid;
+    private String uuid;
 
     @NotNull
     private String firstName;

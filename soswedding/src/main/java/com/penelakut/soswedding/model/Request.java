@@ -20,6 +20,8 @@ public class Request {
 
     private String address;
 
+    private String title;
+
     private String description;
 
     private ServiceType serviceType;

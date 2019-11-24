@@ -24,15 +24,15 @@ public class User {
     @NotNull
     private String firstName;
 
-    private String lastName;
+    @NotNull
+    private String emailAddress;
 
     @NotNull
     private UserType type;
 
-    private String phoneNumber;
+    private String lastName;
 
-    @NotNull
-    private String emailAddress;
+    private String phoneNumber;
 
     private String companyName;
 

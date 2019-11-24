@@ -26,7 +26,7 @@ public class UserAPI {
     }
 
     @GetMapping("/user/{uuid}")
-    public User getUserById(@PathVariable String uuid){
+    public User getUserByUUID(@PathVariable String uuid){
         return userRepository.findUserByUuid(uuid).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
                 String.format("No User found with uuid %s ", uuid)));
     }

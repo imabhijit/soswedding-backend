@@ -9,4 +9,5 @@ import com.penelakut.soswedding.model.Bid;
 public interface BidRepository extends JpaRepository<Bid, Long> {
     List<Bid> findAllByRequestId(Long requestId);
     List<Bid> findAllByProviderUuid(String uuid);
+    List<Bid> findAllByCoupleUuid(String uuid);
 }

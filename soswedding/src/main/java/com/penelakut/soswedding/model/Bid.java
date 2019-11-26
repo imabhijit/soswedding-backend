@@ -26,6 +26,8 @@ public class Bid {
 
     private String providerUuid;
 
+    private String coupleUuid;
+
     private Long requestId;
 
 

@@ -30,6 +30,11 @@ public class BidAPI {
         return  bidRepository.findAllByProviderUuid(uuid);
     }
 
+    @GetMapping("/bid/couple/{uuid}")
+    public List<Bid> getAllBidsByCoupleUuid(@PathVariable String uuid){
+        return  bidRepository.findAllByCoupleUuid(uuid);
+    }
+
     @GetMapping("/bid/{id}")
     public Bid getBidById(@PathVariable String id){
         return bidRepository.findById(Long.parseLong(id)).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,

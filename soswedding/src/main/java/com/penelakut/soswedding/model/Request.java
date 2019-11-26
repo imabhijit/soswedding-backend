@@ -28,5 +28,5 @@ public class Request {
 
     private Double budget;
 
-    private Long userId;
+    private String coupleUuid;
 }

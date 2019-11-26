@@ -32,9 +32,9 @@ public class RequestAPI {
         return requestRepository.findAll();
     }
 
-    @GetMapping("/request/user/{id}")
-    public List<Request> getAllRequestsByUserId(@PathVariable String id){
-        return  requestRepository.findAllByUserId(Long.parseLong(id));
+    @GetMapping("/request/user/{uuid}")
+    public List<Request> getAllRequestsByUserUuid(@PathVariable String uuid){
+        return  requestRepository.findAllByCoupleUuid(uuid);
     }
 
 

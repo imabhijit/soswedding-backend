@@ -46,7 +46,7 @@ public class BidAPI {
         return bidRepository.save(bid);
     }
 
-    @PatchMapping("/bid/{id}/decline")
+    @PatchMapping("/bid/{bidId}/decline")
     public Bid declineBid(@PathVariable String bidId){
         Bid toDecline = getBidById(bidId);
         toDecline.setStatus(Status.DECLINED);

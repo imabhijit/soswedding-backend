@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.penelakut.soswedding.model.Bid;
 import com.penelakut.soswedding.model.Request;
-import com.penelakut.soswedding.model.Status;
-import com.penelakut.soswedding.repository.BidRepository;
 import com.penelakut.soswedding.repository.RequestRepository;
 
 @RestController
@@ -24,9 +21,6 @@ public class RequestAPI {
 
     @Autowired
     private RequestRepository requestRepository;
-
-    @Autowired
-    private BidRepository bidRepository;
 
     @PostMapping("/request")
     public Request createRequest(@RequestBody Request request){
@@ -57,40 +51,5 @@ public class RequestAPI {
 
     @DeleteMapping("/request")
     public void deleteRequest(@RequestBody Request request){ requestRepository.delete(request); }
-
-//  BIDS
-    @GetMapping("/request/{id}/bid")
-    public List<Bid> getAllBidsByRequestId(@PathVariable String id){
-        return  bidRepository.findAllByRequestId(Long.parseLong(id));
-    }
-
-    @GetMapping("/bid/provider/{uuid}")
-    public List<Bid> getAllBidsByProviderId(@PathVariable String uuid){
-        return  bidRepository.findAllByProviderUuid(uuid);
-    }
-
-    @GetMapping("/bid/{id}")
-    public Bid getBidById(@PathVariable String id){
-        return bidRepository.findById(Long.parseLong(id)).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
-                String.format("No bid found with id %s ", id)));
-    }
-
-    @PostMapping("/request/{id}/bid")
-    public Bid createBid(@RequestBody Bid bid){
-        return bidRepository.save(bid);
-    }
-
-    @PatchMapping("/request/{requestId}/bid/{bidId}/accept")
-    public List<Bid> acceptBid(@PathVariable String requestId, @PathVariable String bidId){
-        Bid toAccept = getBidById(bidId);
-        toAccept.setStatus(Status.ACCEPTED);
-        List<Bid> bidList = getAllBidsByRequestId(requestId);
-        for (Bid b: bidList){
-            if(b.getStatus()!=Status.ACCEPTED){
-                b.setStatus(Status.DECLINED);
-            }
-        }
-        return bidRepository.saveAll(bidList);
-    }
 
 }

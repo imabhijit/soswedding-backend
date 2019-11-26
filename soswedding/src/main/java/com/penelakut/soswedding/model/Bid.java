@@ -24,7 +24,7 @@ public class Bid {
 
     private Status status;
 
-    private Long userId;
+    private String providerUuid;
 
     private Long requestId;
 

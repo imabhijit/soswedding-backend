@@ -30,5 +30,8 @@ public class Bid {
 
     private Long requestId;
 
+    private String companyName;
+
+    private String requestTitle;
 
 }

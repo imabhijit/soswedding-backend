@@ -39,8 +39,8 @@ public class UserAPITest {
 		MockitoAnnotations.initMocks(this);
 		mockUser = new User();
 		mockUser.setId(1L);
-		mockUser.setFirstName("Rodrigo");
-		mockUser.setUuid("uuid");
+		mockUser.setFirstName("Mohanad");
+		mockUser.setUuid("234");
 		mockUser.setEmailAddress("test@email.com");
 		mockUser.setType(UserType.COUPLE);
 		when(userRepository.findUserByFirstName(any())).thenReturn(Optional.of(mockUser));
@@ -49,6 +49,7 @@ public class UserAPITest {
 
 	@Test
 	public void getUserByFirstName() {
+		System.out.println("\tRunning getUserByFirstName Test...\n");
 		User user = userAPI.getUserByFirstName(mockUser.getFirstName());
 		assertEquals(user.getFirstName(), mockUser.getFirstName());
 		verify(userRepository).findUserByFirstName(any());
@@ -56,6 +57,7 @@ public class UserAPITest {
 
     @Test
 	public void getUserByUuid() {
+		System.out.println("\tRunning getUserByUuid Test...\n");
 		User user = userAPI.getUserByUUID(mockUser.getUuid());
 		assertEquals(user.getUuid(), mockUser.getUuid());
 		verify(userRepository).findUserByUuid(any());

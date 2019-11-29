@@ -6,6 +6,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Optional;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
@@ -40,9 +41,12 @@ public class RequestAPITest {
 		mockRequest.setCoupleUuid("48");
 		mockRequest.setBudget(1200.3);
 		mockRequest.setTitle("Test Req");
+
+		List<Request> mockList = new ArrayList<>();
+		mockList.add(mockRequest);
         
 		when(requestRepository.findById(any())).thenReturn(Optional.of(mockRequest));
-		when(requestRepository.findAllByCoupleUuid(any())).thenReturn(List.of(mockRequest));
+		when(requestRepository.findAllByCoupleUuid(any())).thenReturn(mockList);
 	}
 
 	@Test

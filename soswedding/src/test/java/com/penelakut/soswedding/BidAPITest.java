@@ -16,6 +16,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 import com.penelakut.soswedding.controller.BidAPI;
 import com.penelakut.soswedding.model.Bid;
 import com.penelakut.soswedding.repository.BidRepository;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -41,10 +43,13 @@ public class BidAPITest {
 		mockBid.setMessage("Testing");
 		mockBid.setProviderUuid("252");
 		mockBid.setCoupleUuid("149");
+
+		List<Bid> mockList = new ArrayList<>();
+		mockList.add(mockBid);
         
 		when(bidRepository.findById(any())).thenReturn(Optional.of(mockBid));
-		when(bidRepository.findAllByProviderUuid(any())).thenReturn(List.of(mockBid));
-		when(bidRepository.findAllByCoupleUuid(any())).thenReturn(List.of(mockBid));
+		when(bidRepository.findAllByProviderUuid(any())).thenReturn(mockList);
+		when(bidRepository.findAllByCoupleUuid(any())).thenReturn(mockList);
 	}
 
 	@Test

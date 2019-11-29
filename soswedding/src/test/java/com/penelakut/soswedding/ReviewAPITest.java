@@ -5,6 +5,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.junit.Before;
@@ -38,10 +39,13 @@ public class ReviewAPITest {
 		mockReview = new Review();
 		mockReview.setId(2L);
         mockReview.setRating(5);
-        mockReview.setDescription("Very good test case!");
+		mockReview.setDescription("Very good test case!");
+
+		List<Review> mockList = new ArrayList<Review>();
+		mockList.add(mockReview);
         
         when(reviewRepository.findById(any())).thenReturn(Optional.of(mockReview));
-        when(reviewRepository.findAllByReviewerId(any())).thenReturn(List.of(mockReview));
+        when(reviewRepository.findAllByReviewerId(any())).thenReturn(mockList);
 	}
 
 	@Test

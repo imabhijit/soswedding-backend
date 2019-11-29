@@ -29,4 +29,6 @@ public class Request {
     private Double budget;
 
     private String coupleUuid;
+
+    private Status status;
 }

@@ -13,17 +13,17 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class RequestTest {
+public class RequestAPITest {
 
-	public RequestTest() {}
+	public RequestAPITest() {}
 
 	@Mock
 	RequestRepository repository;
-	
+
 	@Test
 	public void getRequestByCoupleUuid() {
 		List<Request> mockList= new ArrayList<Request>();
 		assertEquals(repository.findAllByCoupleUuid(any()), mockList);
 	}
-	
+
 }

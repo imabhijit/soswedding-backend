@@ -2,23 +2,26 @@ package com.penelakut.soswedding;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
+
 import java.util.ArrayList;
 import java.util.List;
-import com.penelakut.soswedding.model.Bid;
-import com.penelakut.soswedding.repository.BidRepository;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-@RunWith(MockitoJUnitRunner.class)
-public class BidTest {
+import com.penelakut.soswedding.model.Bid;
+import com.penelakut.soswedding.repository.BidRepository;
 
-	public BidTest() {}
+@RunWith(MockitoJUnitRunner.class)
+public class BidAPITest {
+
+	public BidAPITest() {}
 
 	@Mock
 	BidRepository repository;
-	
+
 	@Test
 	public void getBidByRequestId() {
 		List<Bid> mockList= new ArrayList<Bid>();

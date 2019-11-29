@@ -14,23 +14,23 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ReviewTest {
+public class ReviewAPITest {
 
-	public ReviewTest() {}
+	public ReviewAPITest() {}
 
 	@Mock
 	ReviewRepository repository;
-	
+
 	@Test
 	public void getReviewByUserId() {
 		List<Review> mockList= new ArrayList<Review>();
 		assertEquals(repository.findAllByReviewedUserId(any()), mockList);
     }
-    
+
     @Test
 	public void getReviewByReviewerId() {
 		List<Review> mockList= new ArrayList<Review>();
 		assertEquals(repository.findAllByReviewerId(any()), mockList);
 	}
-	
+
 }
